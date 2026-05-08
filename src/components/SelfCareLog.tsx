@@ -20,7 +20,6 @@ const SelfCareLog = () => {
     { id: '2', text: 'Read 20 pages of my book', completed: false },
   ]);
   const [newItem, setNewItem] = useState('');
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (isSupabaseConfigured()) {
@@ -29,11 +28,14 @@ const SelfCareLog = () => {
   }, []);
 
   const fetchLogs = async () => {
-    const { data, error } = await supabase.from('self_care_logs').select('*').order('created_at', { ascending: false });
-    if (error) {
+    try {
+      const { data, error } = await supabase.from('self_care_logs').select('*').order('created_at', { ascending: false });
+      if (error) throw error;
+      if (data && data.length > 0) {
+        setItems(data);
+      }
+    } catch (error) {
       console.error('Error fetching logs:', error);
-    } else if (data && data.length > 0) {
-      setItems(data);
     }
   };
 
@@ -41,7 +43,8 @@ const SelfCareLog = () => {
     e.preventDefault();
     if (!newItem.trim()) return;
 
-    const item: LogItem = { id: Date.now().toString(), text: newItem, completed: false };
+    const tempId = Date.now().toString();
+    const item: LogItem = { id: tempId, text: newItem, completed: false };
     
     try {
       if (isSupabaseConfigured()) {
@@ -58,6 +61,7 @@ const SelfCareLog = () => {
       showSuccess("Added to your log.");
     } catch (error) {
       showError("Failed to save log.");
+      console.error(error);
     }
   };
 
@@ -73,6 +77,7 @@ const SelfCareLog = () => {
       setItems(items.map(i => i.id === id ? { ...i, completed: !currentStatus } : i));
     } catch (error) {
       showError("Update failed.");
+      console.error(error);
     }
   };
 
@@ -85,6 +90,7 @@ const SelfCareLog = () => {
       setItems(items.filter(i => i.id !== id));
     } catch (error) {
       showError("Delete failed.");
+      console.error(error);
     }
   };
 

@@ -31,11 +31,14 @@ const VoucherSystem = () => {
   }, []);
 
   const fetchVouchers = async () => {
-    const { data, error } = await supabase.from('vouchers').select('*').order('created_at', { ascending: true });
-    if (error) {
+    try {
+      const { data, error } = await supabase.from('vouchers').select('*').order('created_at', { ascending: true });
+      if (error) throw error;
+      if (data && data.length > 0) {
+        setVouchers(data);
+      }
+    } catch (error) {
       console.error('Error fetching vouchers:', error);
-    } else if (data && data.length > 0) {
-      setVouchers(data);
     }
   };
 
@@ -54,7 +57,8 @@ const VoucherSystem = () => {
       setVouchers(prev => prev.map(v => v.id === id ? { ...v, status: 'redeemed' } : v));
       showSuccess("Voucher redeemed! Enjoy your wellness moment.");
     } catch (error) {
-      showError("Failed to redeem voucher. Try again later.");
+      showError("Failed to redeem voucher.");
+      console.error(error);
     } finally {
       setLoading(false);
     }
