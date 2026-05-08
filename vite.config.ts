@@ -7,6 +7,7 @@ export default defineConfig(() => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: true, // Allow all hosts to prevent issues with custom domains/proxies
   },
   plugins: [dyadComponentTagger(), react()],
   resolve: {
