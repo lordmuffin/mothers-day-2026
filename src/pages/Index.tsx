@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MadeWithDyad } from "@/components/made-with-dyad";
@@ -6,7 +8,7 @@ import VoucherSystem from '@/components/VoucherSystem';
 import HarleyGallery from '@/components/HarleyGallery';
 import SelfCareLog from '@/components/SelfCareLog';
 import WellnessTip from '@/components/WellnessTip';
-import { User, Moon, Sun, Bell } from 'lucide-react';
+import { User, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 
@@ -14,7 +16,7 @@ const Index = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-background pb-32 transition-colors duration-300">
+    <div className="min-h-screen bg-background pb-12 transition-colors duration-300">
       {/* Header */}
       <header className="px-6 pt-12 pb-8 flex justify-between items-center max-w-md mx-auto sticky top-0 bg-background/80 backdrop-blur-md z-40">
         <div>
@@ -53,19 +55,6 @@ const Index = () => {
         {/* Self-Care Log */}
         <SelfCareLog />
       </main>
-
-      {/* Bottom Navigation (Native App Feel) */}
-      <nav className="fixed bottom-8 left-6 right-6 bg-secondary rounded-[2.5rem] p-4 shadow-2xl flex justify-around items-center max-w-md mx-auto z-50 border border-white/10">
-        <motion.div whileTap={{ scale: 0.9 }} className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-          <div className="w-2 h-2 bg-primary-foreground rounded-full" />
-        </motion.div>
-        <motion.div whileTap={{ scale: 0.9 }} className="w-12 h-12 rounded-full flex items-center justify-center opacity-40">
-          <Bell className="w-5 h-5 text-primary-foreground" />
-        </motion.div>
-        <motion.div whileTap={{ scale: 0.9 }} className="w-12 h-12 rounded-full flex items-center justify-center opacity-40">
-          <User className="w-5 h-5 text-primary-foreground" />
-        </motion.div>
-      </nav>
 
       <footer className="mt-12">
         <MadeWithDyad />
