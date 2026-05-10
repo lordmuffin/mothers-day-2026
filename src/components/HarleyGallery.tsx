@@ -10,7 +10,8 @@ const HarleyGallery = () => {
     "https://photos.fife.usercontent.google.com/pw/AP1GczN6Cee9mnXsma_AnBUWPgPzX7m277SPPdwv7kJpByx96EZYSXJpICazfA=w1703-h1277-s-no-gm?authuser=0",
     "https://photos.fife.usercontent.google.com/pw/AP1GczNWk2tyy-HzZQB2yG96X6XE6MGV9SdvYWQusfHahWAagIGH9rc-V6FerA=w1703-h1277-s-no-gm?authuser=0",
     "https://photos.fife.usercontent.google.com/pw/AP1GczNpVZgj585HtuuKebSEjQVwatZeLOff62VSjUAUItFvcYaLjagdO_iumQ=w958-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczPsasJ7ZFAnBtSr3P30DZNwZoK_Z1X61fESzqMzXfZb39cXk-KL8pm4BQ=w958-h1277-s-no-gm?authuser=0"
+    "https://photos.fife.usercontent.google.com/pw/AP1GczPsasJ7ZFAnBtSr3P30DZNwZoK_Z1X61fESzqMzXfZb39cXk-KL8pm4BQ=w958-h1277-s-no-gm?authuser=0",
+    "https://photos.fife.usercontent.google.com/pw/AP1GczMeWh3BOS92TOSbyw5aSGnK3AgrbmgeU-LXzbfcb9bjfMPLKg5Po9ZU-w=w958-h1277-s-no-gm?authuser=0"
 
   ];
 
