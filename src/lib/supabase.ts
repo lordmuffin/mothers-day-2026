@@ -1,14 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+const SUPABASE_URL = "https://cawpbkmudrnsqbdzrakq.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhd3Bia211ZHJuc3FiZHpyYWtxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyMDI5NjQsImV4cCI6MjA5Mzc3ODk2NH0.KQ1mXz69NE6qPdYr_8Yj2z9gewVbutKg-JroMnHeuBo";
 
-// Helper to check if Supabase is configured
 export const isSupabaseConfigured = () => {
-  return !!supabaseUrl && !!supabaseAnonKey && supabaseUrl !== '';
+  return !!SUPABASE_URL && !!SUPABASE_PUBLISHABLE_KEY;
 };
 
-// Only create the client if we have the credentials to avoid the "supabaseUrl is required" error
-export const supabase = isSupabaseConfigured() 
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null as any;
+export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);

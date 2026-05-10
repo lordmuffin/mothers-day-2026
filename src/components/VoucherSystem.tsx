@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Ticket, CheckCircle2, Clock, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { showSuccess, showError } from '@/utils/toast';
 
 interface Voucher {
