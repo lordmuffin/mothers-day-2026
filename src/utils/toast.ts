@@ -1,17 +1,23 @@
-import { toast } from "sonner";
+import toast from 'react-hot-toast';
 
 export const showSuccess = (message: string) => {
-  toast.success(message);
+  toast.success(message, {
+    style: {
+      borderRadius: '1rem',
+      background: 'var(--card)',
+      color: 'var(--foreground)',
+      border: '1px solid var(--border)',
+    },
+  });
 };
 
 export const showError = (message: string) => {
-  toast.error(message);
-};
-
-export const showLoading = (message: string) => {
-  return toast.loading(message);
-};
-
-export const dismissToast = (toastId: string) => {
-  toast.dismiss(toastId);
+  toast.error(message, {
+    style: {
+      borderRadius: '1rem',
+      background: 'var(--card)',
+      color: 'var(--foreground)',
+      border: '1px solid var(--border)',
+    },
+  });
 };
