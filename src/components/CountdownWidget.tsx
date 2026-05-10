@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock } from 'lucide-react';
@@ -6,15 +8,19 @@ const CountdownWidget = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
-    // Mock countdown to a wellness retreat or weekend
-    const target = new Date();
-    target.setDate(target.getDate() + 4);
-    target.setHours(17, 0, 0);
+    // Target date: Friday, May 29, 2026, at 5:00 PM
+    const target = new Date('2026-05-29T17:00:00');
 
     const timer = setInterval(() => {
       const now = new Date();
       const diff = target.getTime() - now.getTime();
       
+      if (diff <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0 });
+        clearInterval(timer);
+        return;
+      }
+
       setTimeLeft({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -60,7 +66,7 @@ const CountdownWidget = () => {
 
         <div className="mt-8 flex items-center gap-2 text-xs text-muted-foreground font-light">
           <Clock className="w-3 h-3" />
-          <span>Scheduled for Friday, 5:00 PM</span>
+          <span>Scheduled for Friday, May 29, 2026 at 5:00 PM</span>
         </div>
       </div>
     </motion.div>
