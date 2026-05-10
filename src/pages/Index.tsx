@@ -20,8 +20,8 @@ const Index = () => {
       {/* Header */}
       <header className="px-6 pt-12 pb-8 flex justify-between items-center max-w-md mx-auto sticky top-0 bg-background/80 backdrop-blur-md z-40">
         <div>
-          <h1 className="text-2xl font-light text-foreground tracking-tight">Executive Wellness</h1>
-          <p className="text-[10px] text-primary font-bold tracking-[0.2em] uppercase mt-1">Partner Dashboard</p>
+          <h1 className="text-2xl font-light text-foreground tracking-tight">Partner Dashboard</h1>
+          <p className="text-[10px] text-primary font-bold tracking-[0.2em] uppercase mt-1">Executive Wellness</p>
         </div>
         <div className="flex gap-2">
           <Button
