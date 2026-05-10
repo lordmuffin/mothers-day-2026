@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Ticket, CheckCircle2, Clock, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { supabase, isSupabaseConfigured } from '@/lib/supabase';
+import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from '@/utils/toast';
 
 interface Voucher {
@@ -17,15 +19,13 @@ const VoucherSystem = () => {
   const [vouchers, setVouchers] = useState<Voucher[]>([
     { id: '1', title: 'Sleep In', description: 'Valid for one morning of undisturbed rest.', status: 'available' },
     { id: '2', title: 'Spa Day', description: 'A full day of pampering and relaxation.', status: 'available' },
-    { id: '3', title: 'Dinner Date', description: 'A night out at your favorite restaurant.', status: 'redeemed' },
+    { id: '3', title: 'Dinner Date', description: 'A night out at your favorite restaurant.', status: 'available' },
     { id: '4', title: 'Harley Walk', description: 'I take Harley for a long extra walk.', status: 'available' },
   ]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isSupabaseConfigured()) {
-      fetchVouchers();
-    }
+    fetchVouchers();
   }, []);
 
   const fetchVouchers = async () => {
@@ -43,14 +43,12 @@ const VoucherSystem = () => {
   const handleRedeem = async (id: string) => {
     setLoading(true);
     try {
-      if (isSupabaseConfigured()) {
-        const { error } = await supabase
-          .from('vouchers')
-          .update({ status: 'redeemed' })
-          .eq('id', id);
-        
-        if (error) throw error;
-      }
+      const { error } = await supabase
+        .from('vouchers')
+        .update({ status: 'redeemed' })
+        .eq('id', id);
+      
+      if (error) throw error;
 
       setVouchers(prev => prev.map(v => v.id === id ? { ...v, status: 'redeemed' } : v));
       showSuccess("Voucher redeemed! Enjoy your wellness moment.");
