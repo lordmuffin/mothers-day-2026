@@ -1,29 +1,31 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 
-const HarleyGallery = () => {
-  // Using high-quality placeholders for now
-  const photos = [
-    "https://photos.fife.usercontent.google.com/pw/AP1GczPA4z-n9x63nUB5XioU2T_FqcL7ojZ61Ams39pm2rfUfbtvmlYiv00TrA=w1703-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczMIY41dbde4K2bF-i48c3_qobohD7myAxF3qiNCERGkx5PTU6IM_YNysg=w1703-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczN6Cee9mnXsma_AnBUWPgPzX7m277SPPdwv7kJpByx96EZYSXJpICazfA=w1703-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczNWk2tyy-HzZQB2yG96X6XE6MGV9SdvYWQusfHahWAagIGH9rc-V6FerA=w1703-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczNpVZgj585HtuuKebSEjQVwatZeLOff62VSjUAUItFvcYaLjagdO_iumQ=w958-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczPsasJ7ZFAnBtSr3P30DZNwZoK_Z1X61fESzqMzXfZb39cXk-KL8pm4BQ=w958-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczMeWh3BOS92TOSbyw5aSGnK3AgrbmgeU-LXzbfcb9bjfMPLKg5Po9ZU-w=w958-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczP5rcUgsqGkrIzaR7RKCi2F6T4wmJQKcnCqIY1Uxszo2Knjn0E4CdNlbQ=w1703-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczOdxBcNz3dYdWGSHqRvystTeMqdDyQjZMhg-85GR5JI1gkHby8NJn3ueA=w962-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczMbMtYR6IoKPSOg0QQPeNTEkLJz9duEgEJgtAlHB1nIZTX2FAEGacoJoQ=w962-h1277-s-no-gm?authuser=0",
-    "https://photos.fife.usercontent.google.com/pw/AP1GczPmBy2SCOLAfL67NHQMkCqB9djYjl8dxqMprlkBjfvXXFrVdGZOq-PPWg=w1696-h1277-s-no-gm?authuser=0"
+// Import local images
+import h1 from '@/assets/gallery/harley_1.jpg';
+import h2 from '@/assets/gallery/harley_2.jpg';
+import h3 from '@/assets/gallery/harley_3.jpg';
+import h4 from '@/assets/gallery/harley_4.jpg';
+import h5 from '@/assets/gallery/harley_5.jpg';
+import h6 from '@/assets/gallery/harley_6.jpg';
+import h7 from '@/assets/gallery/harley_7.jpg';
+import h8 from '@/assets/gallery/harley_8.jpg';
+import h9 from '@/assets/gallery/harley_9.jpg';
+import h10 from '@/assets/gallery/harley_10.jpg';
+import h11 from '@/assets/gallery/harley_11.jpg';
+import h12 from '@/assets/gallery/harley_12.jpg';
 
-  ];
+const HarleyGallery = () => {
+  const photos = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12];
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between px-2">
-        <h3 className="text-lg font-medium text-[#36454F]">The Harley Gallery</h3>
-        <Heart className="w-4 h-4 text-[#8A9A5B] fill-[#8A9A5B]" />
+        <h3 className="text-lg font-medium text-foreground">The Harley Gallery</h3>
+        <Heart className="w-4 h-4 text-primary fill-primary" />
       </div>
 
       <div className="flex gap-4 overflow-x-auto pb-4 snap-x no-scrollbar">
@@ -31,7 +33,7 @@ const HarleyGallery = () => {
           <motion.div
             key={index}
             whileHover={{ scale: 1.02 }}
-            className="min-w-[280px] h-[350px] rounded-[2rem] overflow-hidden snap-center shadow-sm border border-[#E8EAE0]"
+            className="min-w-[280px] h-[350px] rounded-[2rem] overflow-hidden snap-center shadow-sm border border-border"
           >
             <img 
               src={photo} 
