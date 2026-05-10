@@ -6,11 +6,11 @@ const HarleyGallery = () => {
   // Using high-quality placeholders for now
   const photos = [
     "https://photos.fife.usercontent.google.com/pw/AP1GczPA4z-n9x63nUB5XioU2T_FqcL7ojZ61Ams39pm2rfUfbtvmlYiv00TrA=w1703-h1277-s-no-gm?authuser=0",
+    "https://photos.fife.usercontent.google.com/pw/AP1GczMIY41dbde4K2bF-i48c3_qobohD7myAxF3qiNCERGkx5PTU6IM_YNysg=w1703-h1277-s-no-gm?authuser=0",
     "",
     "",
     "",
-    "",
-    
+
   ];
 
   return (
