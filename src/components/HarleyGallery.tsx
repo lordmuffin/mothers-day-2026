@@ -5,9 +5,12 @@ import { Heart } from 'lucide-react';
 const HarleyGallery = () => {
   // Using high-quality placeholders for now
   const photos = [
-    "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800"
+    "https://photos.fife.usercontent.google.com/pw/AP1GczPA4z-n9x63nUB5XioU2T_FqcL7ojZ61Ams39pm2rfUfbtvmlYiv00TrA=w1703-h1277-s-no-gm?authuser=0",
+    "",
+    "",
+    "",
+    "",
+    
   ];
 
   return (
